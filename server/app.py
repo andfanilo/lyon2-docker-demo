@@ -1,4 +1,3 @@
-import joblib
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
@@ -18,7 +17,6 @@ db = client.test_database
 collection = db.test_collection
 
 target_names = ['setosa', 'versicolor', 'virginica']
-model = joblib.load("model.joblib")
 
 @app.get("/")
 async def root():
@@ -36,8 +34,4 @@ async def list_fruits():
 @app.post("/predict")
 def predict(item: Item):
     item_data = jsonable_encoder(item)
-    prediction = model.predict([(list(item_data.values()))]).item()
-    prediction = target_names[prediction]
-    return {
-        "prediction": prediction
-    }
+    raise NotImplemented
