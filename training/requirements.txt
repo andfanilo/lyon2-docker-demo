@@ -1,2 +1,0 @@
-rich
-scikit-learn==1.2.0

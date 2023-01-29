@@ -1,3 +1,4 @@
+"""Run with python train.py"""
 import joblib
 from rich import print
 from rich.panel import Panel
