@@ -6,7 +6,7 @@ services:
     image: mongo
 
   client:
-    image: mlops:client
+    image: mlops-client:latest
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
     - 8501:8501
 
   server:
-    image: mlops:server
+    image: mlops-server:latest
     build:
       context: ./server
       dockerfile: Dockerfile
