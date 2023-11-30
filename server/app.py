@@ -34,4 +34,4 @@ async def list_fruits():
 @app.post("/predict")
 def predict(item: Item):
     item_data = jsonable_encoder(item)
-    raise NotImplemented
+    return item_data
