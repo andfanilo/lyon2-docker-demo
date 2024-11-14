@@ -1,2 +1,2 @@
 from rich import print
-print("Hello world")
+print("[italic red]Hello[/italic red] World!", locals())
