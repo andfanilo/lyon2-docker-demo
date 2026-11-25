@@ -45,12 +45,8 @@ docker compose exec server python -c "print(2 + 3)"
 # ---- Claude ----
 claude
 > Explain how this project works: what runs in each folder, and how client, server and MongoDB talk to each other
-> In docker-compose.yml, enable Streamlit's agent API on the client service with the STREAMLIT_SERVER_ENABLE_AGENT_API environment variable
+> Add a GET /health endpoint to server/app.py that returns {"status": "ok"}, then run the server with uv and test it
 /exit
-docker compose up -d
-claude mcp add --transport http iris-app http://localhost:8501/_stcore/agent/mcp
-claude
-> Use iris-app: set sepal length 5, sepal width 3, petal length 1, petal width 0, press Predict flower and tell me what the app shows
-/exit
+git diff
 docker compose down
 ```
