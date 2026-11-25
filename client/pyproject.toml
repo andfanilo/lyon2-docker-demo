@@ -1,0 +1,9 @@
+[project]
+name = "client"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.34.2",
+    "streamlit>=1.67.0",
+]

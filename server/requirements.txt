@@ -1,4 +1,0 @@
-fastapi
-pymongo
-scikit-learn
-uvicorn

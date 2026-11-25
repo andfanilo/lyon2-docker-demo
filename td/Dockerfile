@@ -1,9 +1,10 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
+COPY --from=ghcr.io/astral-sh/uv:0.13.5 /uv /uvx /bin/
 
-COPY app.py /app/app.py
+WORKDIR /app
+COPY pyproject.toml uv.lock /app/
+RUN uv sync --locked --no-install-project
 
-WORKDIR /app 
+COPY app.py app.py
 
-RUN pip install rich
-
-CMD ["python", "app.py"]
+CMD ["uv", "run", "app.py"]

@@ -1,11 +1,11 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
+COPY --from=ghcr.io/astral-sh/uv:0.13.5 /uv /uvx /bin/
 
-COPY requirements.txt /app/requirements.txt
-WORKDIR /app 
-
-RUN pip install -r requirements.txt
+WORKDIR /app
+COPY pyproject.toml uv.lock /app/
+RUN uv sync --locked --no-install-project
 
 COPY app.py app.py
 # COPY model.joblib model.joblib
 
-CMD ["uvicorn", "--host", "0.0.0.0", "app:app"]
+CMD ["uv", "run", "uvicorn", "--host", "0.0.0.0", "app:app"]
